@@ -1,7 +1,8 @@
+"use client";
 import { GitHubIcon } from "@/components/MyIcons";
+import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-
 interface IpropsProject {
   type: string;
   title: string;
@@ -9,6 +10,8 @@ interface IpropsProject {
   link: string;
   github: string;
 }
+
+const FramerImage = motion(Image);
 
 export const Project = ({ github, img, link, title, type }: IpropsProject) => {
   return (
@@ -20,7 +23,13 @@ export const Project = ({ github, img, link, title, type }: IpropsProject) => {
         target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={img} alt={title} className="w-full h-auto" />
+        <FramerImage
+          src={img}
+          alt={title}
+          className="w-full h-auto"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        />
       </Link>
       <div className="w-full flex flex-col items-start justify-between mt-4">
         <span className="text-primary font-medium text-xl">{type}</span>
