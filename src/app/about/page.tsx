@@ -1,6 +1,7 @@
 import { AnimatedNumbers } from "@/components/AnimatedNumbers";
 import { AnimatedText } from "@/components/AnimatedText";
 import { LayoutDefault } from "@/components/LayoutDefault";
+import { Skills } from "@/components/Skills";
 import Image from "next/image";
 import profileImage from "../../../public/images/profile/developer-pic-2.jpg";
 
@@ -69,6 +70,7 @@ const About = () => {
             </div>
           </div>
         </div>
+        <Skills />
       </LayoutDefault>
     </main>
   );
