@@ -1,6 +1,7 @@
 import { AnimatedNumbers } from "@/components/Animetaded/AnimatedNumbers";
 import { AnimatedText } from "@/components/Animetaded/AnimatedText";
 import { LayoutDefault } from "@/components/LayoutDefault";
+import { Education } from "@/components/PagesComponents/AboutPage/Education";
 import { Experience } from "@/components/PagesComponents/AboutPage/Experience";
 import { Skills } from "@/components/PagesComponents/AboutPage/Skills";
 import Image from "next/image";
@@ -73,6 +74,7 @@ const About = () => {
         </div>
         <Skills />
         <Experience />
+        <Education />
       </LayoutDefault>
     </main>
   );
