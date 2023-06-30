@@ -1,7 +1,7 @@
-import { AnimatedText } from "@/components/AnimatedText";
-import { HireMe } from "@/components/HireMe";
+import { AnimatedText } from "@/components/Animetaded/AnimatedText";
 import { LayoutDefault } from "@/components/LayoutDefault";
 import { LinkArrow } from "@/components/MyIcons";
+import { HireMe } from "@/components/PagesComponents/HomePage/HireMe";
 import Image from "next/image";
 import Link from "next/link";
 import profileImage from "../../public/images/profile/developer-pic-1.png";

@@ -1,7 +1,8 @@
-import { AnimatedNumbers } from "@/components/AnimatedNumbers";
-import { AnimatedText } from "@/components/AnimatedText";
+import { AnimatedNumbers } from "@/components/Animetaded/AnimatedNumbers";
+import { AnimatedText } from "@/components/Animetaded/AnimatedText";
 import { LayoutDefault } from "@/components/LayoutDefault";
-import { Skills } from "@/components/Skills";
+import { Experience } from "@/components/PagesComponents/AboutPage/Experience";
+import { Skills } from "@/components/PagesComponents/AboutPage/Skills";
 import Image from "next/image";
 import profileImage from "../../../public/images/profile/developer-pic-2.jpg";
 
@@ -71,6 +72,7 @@ const About = () => {
           </div>
         </div>
         <Skills />
+        <Experience />
       </LayoutDefault>
     </main>
   );

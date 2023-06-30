@@ -1,32 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Logo } from "../Logo";
+import { Logo } from "../Footer/Logo";
 import { GitHubIcon, LinkedinIcon } from "../MyIcons";
+import { CustomLink } from "./CustomLink";
 
 interface IpropsNavBar {}
-interface IcustomLink {
-  href: string;
-  title: string;
-  className?: string;
-}
-const CustomLink = ({ href, title, className = "" }: IcustomLink) => {
-  const pathName = usePathname();
-
-  return (
-    <Link href={href} className={`${className} relative group`}>
-      {title}
-      <span
-        className={`h-1 inline-block w-0 bg-dark absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 ${
-          pathName === href ? "w-full" : "w-0"
-        }`}
-      >
-        &nbsp;
-      </span>
-    </Link>
-  );
-};
 
 export const NavBar = ({}: IpropsNavBar) => {
   return (
