@@ -1,4 +1,5 @@
 "use client";
+import { useThemeSwitcher } from "@/hooks/UseThemeSwitcher";
 import { motion } from "framer-motion";
 import { Logo } from "../Footer/Logo";
 import { GitHubIcon, LinkedinIcon } from "../MyIcons";
@@ -7,6 +8,8 @@ import { CustomLink } from "./CustomLink";
 interface IpropsNavBar {}
 
 export const NavBar = ({}: IpropsNavBar) => {
+  const [mode, setMode] = useThemeSwitcher();
+
   return (
     <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
       <nav>
@@ -42,6 +45,8 @@ export const NavBar = ({}: IpropsNavBar) => {
         >
           <GitHubIcon className="" />
         </motion.a>
+
+        <button></button>
       </nav>
 
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
