@@ -15,8 +15,15 @@ const FramerImage = motion(Image);
 
 export const Project = ({ github, img, link, title, type }: IpropsProject) => {
   return (
-    <article className="w-full flex flex-col items-center p-6 justify-between rounded-2xl border border-solid border-dark bg-light relative">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl"></div>
+    <article
+      className="w-full flex flex-col items-center p-6 justify-between rounded-2xl 
+    border border-solid border-dark bg-light relative dark:bg-dark
+    dark:border-light"
+    >
+      <div
+        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] 
+      bg-dark rounded-br-3xl dark:bg-light"
+      ></div>
 
       <Link
         href={link}
@@ -32,7 +39,9 @@ export const Project = ({ github, img, link, title, type }: IpropsProject) => {
         />
       </Link>
       <div className="w-full flex flex-col items-start justify-between mt-4">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary font-medium text-xl dark:text-primaryDark">
+          {type}
+        </span>
         <Link
           href={link}
           target="_blank"

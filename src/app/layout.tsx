@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 import { Montserrat } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-mont" });
@@ -11,9 +12,15 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  const cookieStore = cookies();
+  const cookieTheme = cookieStore.get("@AS-theme");
+  const theme = cookieTheme?.value;
+
   return (
-    <html lang="pt-br">
-      <body className={`${montserrat.className} bg-light w-full min-h-screen`}>
+    <html lang="pt-br" className={`${theme && theme === "dark" ? theme : ""}`}>
+      <body
+        className={`${montserrat.className} bg-light dark:bg-dark w-full min-h-screen`}
+      >
         <NavBar />
         {children}
         <Footer />

@@ -1,17 +1,19 @@
 "use client";
 import { useThemeSwitcher } from "@/hooks/UseThemeSwitcher";
 import { motion } from "framer-motion";
-import { Logo } from "../Footer/Logo";
 import { GitHubIcon, LinkedinIcon } from "../MyIcons";
+import { MoonIcon } from "../MyIcons/MoonIcon";
+import { SunIcon } from "../MyIcons/SunIcon";
 import { CustomLink } from "./CustomLink";
+import { Logo } from "./Logo";
 
 interface IpropsNavBar {}
 
 export const NavBar = ({}: IpropsNavBar) => {
-  const [mode, setMode] = useThemeSwitcher();
+  const { mode, setMode } = useThemeSwitcher();
 
   return (
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
+    <header className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light">
       <nav>
         <CustomLink href={"/"} title={"Home"} className="mr-4" />
         <CustomLink href={"/about"} title={"About"} className="mx-4" />
@@ -46,7 +48,25 @@ export const NavBar = ({}: IpropsNavBar) => {
           <GitHubIcon className="" />
         </motion.a>
 
-        <button></button>
+        <button
+          type="button"
+          onClick={() => {
+            setMode((oldvalue) => (oldvalue === "light" ? "dark" : "light"));
+          }}
+          className={`ml-3 flex items-center justify-center rounded-full p-1
+          ${
+            mode == "light"
+              ? "bg-dark text-light"
+              : "hover:bg-light hover:text-dark"
+          }
+          `}
+        >
+          {mode === "dark" ? (
+            <SunIcon className="fill-dark !w-6" />
+          ) : (
+            <MoonIcon className="fill-light !w-6" />
+          )}
+        </button>
       </nav>
 
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">

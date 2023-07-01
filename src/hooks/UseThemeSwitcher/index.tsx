@@ -1,5 +1,6 @@
 "use client";
 
+import { parseCookies, setCookie } from "nookies";
 import { useEffect, useState } from "react";
 
 export const useThemeSwitcher = () => {
@@ -8,7 +9,9 @@ export const useThemeSwitcher = () => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);
-    const userPref = window.localStorage.getItem("theme");
+
+    const cookies = parseCookies();
+    const userPref = cookies["@AS-theme"];
 
     const handleChange = () => {
       if (userPref) {
@@ -30,6 +33,7 @@ export const useThemeSwitcher = () => {
       }
     };
 
+    handleChange();
     mediaQuery.addEventListener("change", handleChange);
 
     return () => mediaQuery.removeEventListener("change", handleChange);
@@ -37,13 +41,18 @@ export const useThemeSwitcher = () => {
 
   useEffect(() => {
     if (mode === "dark") {
-      window.localStorage.setItem("theme", "dark");
+      setCookie(undefined, "@AS-theme", "dark", {
+        maxAge: 30 * 24 * 60 * 60, // 1 month
+      });
       document.documentElement.classList.add("dark");
-    } else {
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("light");
+    }
+    if (mode === "light") {
+      setCookie(undefined, "@AS-theme", "light", {
+        maxAge: 30 * 24 * 60 * 60, // 1 month
+      });
+      document.documentElement.classList.remove("dark");
     }
   }, [mode]);
 
-  return [mode, setMode];
+  return { mode, setMode };
 };
