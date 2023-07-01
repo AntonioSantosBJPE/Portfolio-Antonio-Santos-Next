@@ -43,6 +43,7 @@ export const FeaturedProject = ({
           className="w-full h-auto"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
+          priority
         />
       </Link>
       <div className="w-1/2 flex flex-col items-start justify-between pl-6">

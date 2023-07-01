@@ -17,6 +17,7 @@ const Home = () => {
               src={profileImage}
               alt="Antonio Santos"
               className="w-full h-auto"
+              priority
             />
           </div>
           <div className="w-1/2 flex flex-col items-center self-center">
